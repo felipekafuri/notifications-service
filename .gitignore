@@ -3,6 +3,7 @@
 /node_modules
 
 /kafka-producer/node_modules
+/kafka-producer/credentials.json
 
 # Logs
 logs
