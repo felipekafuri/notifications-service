@@ -73,4 +73,17 @@ export class NotificationsController {
   async unread(@Param('id') id: string) {
     await this.unreadNotification.execute({ notificationId: id });
   }
+
+  @Post('/test')
+  async test() {
+    const { notification } = await this.sendNotification.execute({
+      recipientId: '1',
+      content: 'Teste',
+      category: 'Teste',
+    });
+
+    return {
+      notification: NotificationViewModel.toHttp(notification),
+    };
+  }
 }
