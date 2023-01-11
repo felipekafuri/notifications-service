@@ -13,10 +13,15 @@ interface SendNotificationPayload {
 export class NotificationsController {
   constructor(private sendNotification: SendNotification) {}
 
-  @EventPattern('notifications.send-notification')
+  @EventPattern()
   getNotifications(@Payload() data: number[], @Ctx() context: GCPubSubContext) {
     const originalMsg = context.getMessage();
-    console.log(originalMsg);
-    // originalMsg.ack();
+    // convert Buffer to json
+    const payload = JSON.parse(
+      originalMsg.data.toString(),
+    ) as SendNotificationPayload;
+
+    console.log('payload', payload);
+    originalMsg.ack();
   }
 }
