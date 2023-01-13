@@ -1,9 +1,9 @@
 import { Module } from '@nestjs/common';
 import { DatabaseModule } from './infra/database/database.module';
 import { HttpModule } from './infra/http/http.module';
-import { MessagingModule } from './infra/http/messaging/kafka/messaging.module';
+import { MessagingModule as PubSubMessaginModule } from './infra/http/messaging/pub-sub/messaging.module';
 
 @Module({
-  imports: [HttpModule, DatabaseModule, MessagingModule],
+  imports: [HttpModule, DatabaseModule, PubSubMessaginModule],
 })
 export class AppModule {}

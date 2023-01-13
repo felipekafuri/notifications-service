@@ -11,6 +11,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@google-cloud/pubsub": "^3.2.1",
     "kafkajs": "^2.2.3"
   }
 }
